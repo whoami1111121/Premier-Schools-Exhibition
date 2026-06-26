@@ -1,0 +1,74 @@
+@media (max-width: 992px) {
+  :root {
+    --header-height: 90px;
+
+    --logo-height: 130px;
+
+    --logo-height-scroll: 90px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 80px;
+
+    --logo-height: 110px;
+
+    --logo-height-scroll: 80px;
+  }
+
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .btn {
+    padding: 10px 18px;
+
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  :root {
+    --header-height: 72px;
+
+    --logo-height: 90px;
+
+    --logo-height-scroll: 72px;
+  }
+
+  .btn {
+    padding: 10px 14px;
+
+    font-size: 13px;
+  }
+}
+
+/* Large Desktop */
+@media (max-width: 1400px) {
+}
+
+/* Laptop */
+@media (max-width: 1200px) {
+}
+
+/* Tablet Landscape */
+@media (max-width: 992px) {
+}
+
+/* Tablet Portrait */
+@media (max-width: 768px) {
+}
+
+/* Large Mobile */
+@media (max-width: 576px) {
+}
+
+/* Small Mobile */
+@media (max-width: 375px) {
+}
