@@ -38,6 +38,7 @@
   /* color */
   --bg-left: #000e38;
   --bg-right: #3f186a;
+  --action: #ffcc81;
 }
 body {
   font-family: var(--font-primary);
@@ -63,6 +64,7 @@ body {
   inset: 0 0 auto 0;
   height: var(--header-height);
   background-color: white;
+  z-index: 999;
 }
 
 .header::before {
@@ -77,6 +79,10 @@ body {
 
 .header_scrolled::before {
   opacity: 1;
+}
+.header_scrolled{
+  border-bottom: 1px solid rgb(0, 0, 107);
+
 }
 .header_btn_scroll,
 .header_scrolled .header_btn {
@@ -157,6 +163,9 @@ body {
   transition: all var(--transition);
   z-index: -1;
 }
+.header_btn_content_text {
+  text-transform: uppercase;
+}
 .header_btn:hover .header_btn_bg {
   transition: all var(--transition);
   width: 100%;
@@ -182,6 +191,187 @@ body {
   flex: 1;
 }
 
+/* hero section */
+.hero {
+  background: linear-gradient(to left, var(--bg-right), var(--bg-left));
+  height: calc(100vh - 100px);
+}
+.hero_sec {
+  height: calc(100vh - 100px);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  overflow: hidden;
+}
+
+.hero_content,
+.hero_form {
+  align-items: center;
+  display: flex;
+  padding: 40px 0;
+}
+
+.hero_content {
+  padding-right: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+}
+
+.hero_content_text {
+  color: var(--action);
+}
+.hero_content_text h2 {
+  font-size: 40px;
+}
+.hero_content_text h1 {
+  font-size: 52px;
+}
+.hero_content_text h3 {
+  font-size: 32px;
+}
+
+.hero_content_box {
+  width: 100%;
+  background-color: var(--action);
+  color: var(--bg-left);
+  border-radius: 999px;
+  display: flex;
+  gap: 8px;
+  padding: 24px;
+  position: relative;
+}
+.hero_content_box::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 2px solid rgba(128, 128, 128, 0.301);
+  border-radius: inherit;
+  pointer-events: none;
+}
+.hero_content_box span {
+  width: 2px;
+  background-color: rgba(128, 128, 128, 0.301);
+}
+
+.hero_content_box div {
+  text-align: center;
+}
+.hero_content_box h1 {
+  font-size: 22px;
+}
+.hero_content_box p {
+  font-size: 16px;
+}
+
+.hero_img {
+  height: calc(100vh - 100px);
+  display: flex;
+  gap: 24px;
+  align-items: start;
+  justify-content: start;
+  position: relative;
+}
+
+.hero_img img {
+  flex: 1;
+  width: 13%;
+  animation: scroll-up 8s linear infinite;
+}
+
+@keyframes scroll-up {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-50%));
+  }
+}
+
+.hero_form {
+  padding-left: 40px;
+  width: 100%;
+}
+.hero_form .hero_form_sec {
+  width: 100%;
+  padding: 24px;
+  background: #000e382d;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+}
+.hero_form_sec_form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.hero_form_sec_form > * {
+  background-color: var(--bg-right);
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-family: var(--font-primary);
+  font-size: 18px;
+  color: white;
+}
+
+.hero_form_btn {
+  height: 60px;
+  width: 205px;
+  color: var(--bg-left);
+  border-color: white;
+  border-width: 4px;
+  border-style: solid;
+  position: relative;
+}
+.hero_form_btn_content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+.hero_form_btn_bg {
+  width: 60px;
+  height: 100%;
+  background: white;
+  position: absolute;
+  transition: all var(--transition);
+  z-index: 1;
+}
+.hero_form_btn:hover .hero_form_btn_bg {
+  transition: all var(--transition);
+  width: 100%;
+}
+.hero_form_btn_content_text {
+  text-transform: uppercase;
+  z-index: 3;
+  flex: 1;
+}
+.hero_form_btn:hover .hero_form_btn_content_text {
+  transition: all var(--transition);
+  color: var(--bg-right);
+}
+.hero_form_btn:hover .hero_form_btn_content_img {
+  transition: all var(--transition);
+  rotate: 45deg;
+}
+
+.hero_form_btn_content_img {
+  transition: all var(--transition);
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
 /* Large Desktop */
 @media (max-width: 1400px) {
   :root {
@@ -193,6 +383,27 @@ body {
 @media (max-width: 1200px) {
   :root {
     --container-padding: 60px;
+  }
+
+  .hero_content_text h2 {
+    font-size: 36px;
+  }
+
+  .hero_content_box span {
+    width: 100%;
+    height: 2px;
+  }
+
+  .hero_content_box {
+    flex-direction: column;
+  }
+
+  .hero_content_text h1 {
+    font-size: 48px;
+  }
+
+  .hero_content_text h3 {
+    font-size: 30px;
   }
 }
 
@@ -207,6 +418,63 @@ body {
 
   .navbar_gap {
     height: 90px;
+  }
+
+  /* hero */
+
+  .hero {
+    height: calc(110vh);
+  }
+
+  .hero {
+    background: linear-gradient(to left, var(--bg-right), var(--bg-left));
+    overflow: hidden;
+  }
+  .hide_mobile {
+    display: none;
+  }
+  .hero_img {
+    overflow: hidden;
+  }
+  .hero_sec {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .hero_content {
+    padding: 30px 20px;
+    /* justify-content: start; */
+    align-items: start;
+  }
+  .hero_content_text h2 {
+    font-size: 32px;
+  }
+
+  .hero_content_text h1 {
+    font-size: 42px;
+  }
+
+  .hero_content_text h3 {
+    font-size: 26px;
+  }
+  .hero_form {
+    padding: 30px 0;
+  }
+  .hero_form .hero_form_sec {
+    padding: 16px;
+    gap: 16px;
+  }
+  .hero_form_sec_form {
+    gap: 8px;
+  }
+  .hero_form_sec_form > * {
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    color: white;
   }
 }
 
@@ -238,6 +506,28 @@ body {
     width: 50px;
   }
   .header_btn_content_img {
+    width: 50px;
+  }
+
+  .hero_content_text h2 {
+    font-size: 28px;
+  }
+
+  .hero_content_text h1 {
+    font-size: 36px;
+  }
+
+  .hero_content_text h3 {
+    font-size: 22px;
+  }
+  .hero_form_btn {
+    height: 50px;
+    width: 180px;
+  }
+  .hero_form_btn_bg {
+    width: 50px;
+  }
+  .hero_form_btn_content_img {
     width: 50px;
   }
 }
@@ -272,6 +562,34 @@ body {
   }
   .header_btn_content_img {
     width: 40px;
+  }
+
+  .hero_content_text h2 {
+    font-size: 24px;
+  }
+
+  .hero_content_text h1 {
+    font-size: 30px;
+  }
+
+  .hero_content_text h3 {
+    font-size: 20px;
+  }
+  .hero_form_btn {
+    height: 40px;
+    width: 150px;
+  }
+  .hero_form_btn_bg {
+    width: 40px;
+  }
+  .hero_form_btn_content_img {
+    width: 40px;
+  }
+  .hero_content {
+    padding: 30px 20px;
+  }
+  .hero_form {
+    padding: 30px 0px;
   }
 }
 
