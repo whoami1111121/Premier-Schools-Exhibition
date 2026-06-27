@@ -80,9 +80,8 @@ body {
 .header_scrolled::before {
   opacity: 1;
 }
-.header_scrolled{
+.header_scrolled {
   border-bottom: 1px solid rgb(0, 0, 107);
-
 }
 .header_btn_scroll,
 .header_scrolled .header_btn {
@@ -372,6 +371,41 @@ body {
   z-index: 2;
 }
 
+/* card */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  width: 90%;
+  margin: 0 auto;
+  color: var(--bg-left);
+  padding: 60px 0;
+}
+.card img {
+  width: 100%;
+}
+.card {
+  position: relative;
+}
+.card div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+.card div h1 {
+  font-size: 24px;
+}
+.card div p {
+  font-size: 18px;
+}
+
 /* Large Desktop */
 @media (max-width: 1400px) {
   :root {
@@ -404,6 +438,10 @@ body {
 
   .hero_content_text h3 {
     font-size: 30px;
+  }
+
+  .cards {
+    width: 90%;
   }
 }
 
@@ -476,6 +514,14 @@ body {
     font-size: 14px;
     color: white;
   }
+
+  /* card */
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 40px 0;
+    width: 70%;
+  }
 }
 
 /* Tablet Portrait */
@@ -529,6 +575,20 @@ body {
   }
   .hero_form_btn_content_img {
     width: 50px;
+  }
+
+  /* card */
+  .cards {
+    padding: 30px 0;
+    width: 70%;
+  }
+
+  .card div h1 {
+    font-size: 20px;
+  }
+
+  .card div p {
+    font-size: 14px;
   }
 }
 
@@ -590,6 +650,18 @@ body {
   }
   .hero_form {
     padding: 30px 0px;
+  }
+
+  /* card */
+  .cards {
+    width: 90%;
+  }
+  .card div h1 {
+    font-size: 18px;
+  }
+
+  .card div p {
+    font-size: 12px;
   }
 }
 
